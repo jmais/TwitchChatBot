@@ -34,18 +34,18 @@ setInterval(()=>{ // writes message every user specified minute
 
 client.action("DankPepe", 'You can Subscribe for FREE with Twitch Prime :)');
 
-},3*60000); //ms-> minutes = minutes*60000
+},30*60000); //ms-> minutes = minutes*60000
 
 
 //using chat commands to querier and grab data entries
 client.on('chat',function(channel, user, message, self){
 
-	//created sample database to perfrom actions on for test querie operations are succesfull
+	//can perform more robust quereies if needed
 	if(message === '!workout'){
-		entry.find({},(err,data)=>{
+		entry.find({},(err,data)=>{ 
 			if (err) throw(err);
 			for(key in data){
-				console.log(data[key].name + ": " + data[key].amount); // can turn into client.action but didn't want to crowd test enviroment with entries
+				console.log(data[key].name + ": " + data[key].amount); // will turn into client.action but didn't want to crowd test enviroment with entries
 			}
 		});
 	}
